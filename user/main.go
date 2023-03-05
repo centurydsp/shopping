@@ -5,6 +5,10 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
+	"user/domain/repository"
+	"user/domain/service"
+	"user/handler"
+	"user/proto/user"
 )
 
 func main() {
@@ -29,8 +33,8 @@ func main() {
 	//rp:=repository.NewUserRepository(db)
 	//rp.InitTable()
 
-	/*//创建服务实例
-	userDataService := service2.NewUserDataService(repository.NewUserRepository(db))
+	//创建服务实例
+	userDataService := service.NewUserDataService(repository.NewUserRepository(db))
 	//注册Handler
 	err = user.RegisterUserHandler(srv.Server(), &handler.User{UserDataService: userDataService})
 	if err != nil {
@@ -40,5 +44,5 @@ func main() {
 	// Run service
 	if err := srv.Run(); err != nil {
 		fmt.Println(err)
-	}*/
+	}
 }

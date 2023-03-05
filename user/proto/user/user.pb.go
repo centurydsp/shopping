@@ -15,7 +15,7 @@ It has these top-level messages:
 	UserLoginRequest
 	UserLoginResponse
 */
-package go_micro_service_user
+package user
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
