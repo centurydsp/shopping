@@ -1,11 +1,11 @@
 package main
 
 import (
-	"category/commons"
 	"category/domain/repository"
 	service2 "category/domain/service"
 	"category/handler"
 	"category/proto/category"
+	"commons"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
@@ -49,8 +49,8 @@ func main() {
 	//禁止复表
 	db.SingularTable(true)
 
-	//rp := repository.NewCategoryRepository(db)
-	//rp.InitTable()
+	rp := repository.NewCategoryRepository(db)
+	rp.InitTable()
 	// Initialise service
 	service.Init()
 
