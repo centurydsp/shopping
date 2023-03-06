@@ -1,10 +1,10 @@
 package handler
 
 import (
+	"category/commons"
 	"category/domain/model"
 	"category/domain/service"
 	"category/proto/category"
-	"common"
 	"context"
 	"github.com/prometheus/common/log"
 )
@@ -17,7 +17,7 @@ type Category struct {
 func (c *Category) CreateCategory(ctx context.Context, request *category.CategoryRequest, response *category.CreateCategoryResponse) error {
 	category := &model.Category{}
 	//赋值
-	err := common.SwapTo(request, category)
+	err := commons.SwapTo(request, category)
 	if err != nil {
 		return err
 	}
@@ -33,7 +33,7 @@ func (c *Category) CreateCategory(ctx context.Context, request *category.Categor
 // 提供分类更新服务
 func (c *Category) UpdateCategory(ctx context.Context, request *category.CategoryRequest, response *category.UpdateCategoryResponse) error {
 	category := &model.Category{}
-	err := common.SwapTo(response, category)
+	err := commons.SwapTo(response, category)
 	if err != nil {
 		return err
 	}
@@ -61,7 +61,7 @@ func (c *Category) FindCategoryByName(ctx context.Context, request *category.Fin
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(category, response)
+	return commons.SwapTo(category, response)
 
 }
 
@@ -71,7 +71,7 @@ func (c *Category) FindCategoryByID(ctx context.Context, request *category.FindB
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(category, response)
+	return commons.SwapTo(category, response)
 }
 
 func (c *Category) FindCategoryByLevel(ctx context.Context, request *category.FindByLevelRequest, response *category.FindAllResponse) error {
@@ -104,7 +104,7 @@ func (c *Category) FindAllCategory(ctx context.Context, request *category.FindAl
 func categoryToResponse(categorySlice []model.Category, response *category.FindAllResponse) {
 	for _, cg := range categorySlice {
 		cr := &category.CategoryResponse{}
-		err := common.SwapTo(cg, cr)
+		err := commons.SwapTo(cg, cr)
 		if err != nil {
 			log.Error(err)
 			break

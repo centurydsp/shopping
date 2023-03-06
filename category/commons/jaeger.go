@@ -1,4 +1,4 @@
-package common
+package commons
 
 import (
 	"github.com/opentracing/opentracing-go"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//创建jaeger链路追踪实例
+// 创建jaeger链路追踪实例
 func NewTracer(serviceName string, addr string) (opentracing.Tracer, io.Closer, error) {
 	cfg := &jaegercfg.Configuration{
 		ServiceName: serviceName,

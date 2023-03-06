@@ -1,11 +1,11 @@
-package common
+package commons
 
 import (
 	"encoding/json"
 )
 
-//通过json tag 进行结构体赋值
-func SwapTo(request, target interface{}) (err error)  {
+// 通过json tag 进行结构体赋值
+func SwapTo(request, target interface{}) (err error) {
 	dataByte, err := json.Marshal(request)
 	if err != nil {
 		return
