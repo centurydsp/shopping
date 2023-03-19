@@ -9,11 +9,11 @@ import (
 	opentracing2 "github.com/micro/go-plugins/wrapper/trace/opentracing/v2"
 	"github.com/opentracing/opentracing-go"
 	"log"
-	"product/common"
-	go_micro_service_product "product/proto/product"
+	"test/common"
+	go_micro_service_product "test/proto/product"
 )
 
-func main1() {
+func main() {
 	//注册中心
 	consul := consul2.NewRegistry(func(options *registry.Options) {
 		options.Addrs = []string{
